@@ -1,0 +1,278 @@
+#Librarys used are math,time,csv
+#Csv files are used to get and print data in it
+import math
+import time
+
+# Define your fence coordinates for all areas
+fence_coordinates1 = [
+(24.339365, 72.877517),
+    (24.339436, 72.877855),
+    (24.339591, 72.878038),
+    (24.339693, 72.878240),
+    (24.339785, 72.878299),
+    (24.339927, 72.878332),
+    (24.340156, 72.878206),
+    (24.340355, 72.878235),
+    (24.340383, 72.878361),
+    (24.340377, 72.878547),
+    (24.340560, 72.878729),
+    (24.341013, 72.878779),
+    (24.341245, 72.879073),
+    (24.341334, 72.879399),
+    (24.341316, 72.879565),
+    (24.341264, 72.879752),
+    (24.341189, 72.879880),
+    (24.340855, 72.880242),
+    (24.340361, 72.880273),
+    (24.339673, 72.880347),
+    (24.339015, 72.880423),
+    (24.338546, 72.880463),
+    (24.338181, 72.880193),
+    (24.338101, 72.879657),
+    (24.337868, 72.879529),
+    (24.337546, 72.879291),
+    (24.337286, 72.879175),
+    (24.336965, 72.878652),
+    (24.337392, 72.877586),
+    (24.338481, 72.877358),
+    (24.338961, 72.877119)
+]
+
+fence_coordinates2 = [
+    # ... Your fence coordinates for Area 2 ...
+    (24.342665, 72.880337),
+    (24.342652, 72.880555),
+    (24.342356, 72.880734),
+    (24.342110, 72.880743),
+    (24.341762, 72.880688),
+    (24.341520, 72.880668),
+    (24.341218, 72.880517),
+    (24.341025, 72.880378),
+    (24.340673, 72.880429),
+    (24.340432, 72.880556),
+    (24.340678, 72.880795),
+    (24.340780, 72.880993),
+    (24.340798, 72.881227),
+    (24.340747, 72.881431),
+    (24.340502, 72.881614),
+    (24.340230, 72.881674),
+    (24.340063, 72.881732),
+    (24.340027, 72.881935),
+    (24.339988, 72.882120),
+    (24.339947, 72.882236),
+    (24.339850, 72.882332),
+    (24.339672, 72.882375),
+    (24.339465, 72.882420),
+    (24.339281, 72.882467),
+    (24.339168, 72.882452),
+    (24.339083, 72.882381),
+    (24.338981, 72.882296),
+    (24.338805, 72.882285),
+    (24.338576, 72.882288),
+    (24.338474, 72.882662),
+    (24.338352, 72.882754),
+    (24.338148, 72.882708),
+    (24.338078, 72.882518),
+    (24.338153, 72.881759),
+    (24.338141, 72.881455),
+    (24.338137, 72.881127),
+    (24.338227, 72.880957),
+    (24.338451, 72.880706),
+    (24.338652, 72.880558),
+    (24.338856, 72.880545),
+    (24.339248, 72.880446),
+    (24.339624, 72.880325),
+    (24.339901, 72.880316),
+    (24.340373, 72.880245),
+    (24.340767, 72.880151),
+    (24.341232, 72.880136)
+]
+
+fence_coordinates3 = [
+    # ... Your fence coordinates for Area 3 ...
+    (24.339660, 72.876198),
+    (24.340521, 72.876111),
+    (24.341077, 72.876060),
+    (24.341438, 72.875599),
+    (24.341875, 72.875845),
+    (24.342081, 72.875917),
+    (24.342106, 72.876108),
+    (24.342115, 72.876294),
+    (24.342332, 72.876378),
+    (24.342648, 72.876903),
+    (24.342914, 72.877348),
+    (24.343192, 72.877874),
+    (24.343074, 72.878042),
+    (24.342784, 72.878114),
+    (24.342365, 72.878192),
+    (24.342140, 72.878334),
+    (24.341667, 72.878782),
+    (24.340982, 72.878807),
+    (24.340426, 72.878665),
+    (24.340353, 72.878345),
+    (24.340235, 72.878179),
+    (24.339939, 72.878238),
+    (24.339707, 72.878087),
+    (24.339435, 72.877834),
+    (24.339352, 72.877400),
+    (24.339311, 72.876991),
+    (24.339618, 72.876511)
+]
+
+
+fence_coordinates4 = [
+    # ... Your fence coordinates for Area 4 ...
+    (24.341604, 72.875646),
+    (24.342049, 72.875833),
+    (24.342225, 72.876064),
+    (24.342338, 72.876321),
+    (24.342553, 72.876739),
+    (24.342763, 72.877003),
+    (24.342763, 72.877003),
+    (24.342969, 72.877442),
+    (24.343193, 72.877700),
+    (24.343474, 72.877520),
+    (24.343687, 72.877405),
+    (24.343894, 72.877234),
+    (24.344227, 72.876976),
+    (24.344443, 72.876780),
+    (24.344669, 72.876641),
+    (24.344903, 72.876394),
+    (24.345021, 72.876250),
+    (24.345101, 72.875806),
+    (24.344993, 72.875366),
+    (24.344746, 72.875005),
+    (24.344332, 72.874345),
+    (24.343972, 72.873832),
+    (24.343456, 72.873685),
+    (24.342769, 72.873662),
+    (24.342473, 72.873768),
+    (24.342285, 72.874104),
+    (24.341931, 72.874410),
+    (24.341703, 72.874904),
+    (24.341674, 72.875235),
+    (24.341631, 72.875441)
+]
+
+global latitude
+global longitude
+# Example latitude and longitude to test
+latitude = 24.339009
+longitude =  72.878742 # Example test point
+
+# Dictionary to store the last known location and time for each vehicle
+vehicle_locations = {}
+
+# Dictionary to store the registered fence coordinates for each vehicle
+vehicle_fence_coordinates = {
+"GJ00HCF8340": fence_coordinates1,
+    "GJ01IYW5897": fence_coordinates1,
+    "GJ02FC2817": fence_coordinates1,
+    "GJ02JT1913": fence_coordinates1,
+    "GJ02NEP2213": fence_coordinates1,
+    "GJ03AJP5994": fence_coordinates1,
+    "GJ03MYZ1791": fence_coordinates1,
+    "GJ03U5066": fence_coordinates1,
+    "GJ05Y7959": fence_coordinates2,
+    "GJ07NT5088": fence_coordinates2,
+    "GJ10PR0106": fence_coordinates2,
+    "GJ12B4369": fence_coordinates2,
+    "GJ12PIQ6024": fence_coordinates2,
+    "GJ13OA1176": fence_coordinates2,
+    "GJ13QR4574": fence_coordinates2,
+    "GJ14IAX9680": fence_coordinates2,
+    "GJ15H6188": fence_coordinates3,
+    "GJ16G8325": fence_coordinates3,
+    "GJ16SJ7994": fence_coordinates3,
+    "GJ16WJC3681": fence_coordinates3,
+    "GJ17B3355": fence_coordinates3,
+    "GJ17DDZ7064": fence_coordinates3,
+    "GJ17OWE0427": fence_coordinates3,
+    "GJ19A8454": fence_coordinates3,
+    "GJ19FEG1838": fence_coordinates4,
+    "GJ20QHS4985": fence_coordinates4,
+    "GJ21XD0638": fence_coordinates4,
+    "GJ22HZX1931": fence_coordinates4,
+    "GJ22R4234": fence_coordinates4,
+    "GJ27FVA9879": fence_coordinates4,
+    "GJ30VPR9134": fence_coordinates4,
+    "GJ32SVE9554": fence_coordinates4
+    # Add more vehicles and their corresponding fence coordinates here
+}
+
+def is_inside_fence(latitude, longitude, fence_coordinates):
+    fenceSize = len(fence_coordinates)
+    vectors = [[0.0, 0.0] for _ in range(fenceSize)]
+
+    for i in range(fenceSize):
+        vectors[i][0] = fence_coordinates[i][0] - latitude
+        vectors[i][1] = fence_coordinates[i][1] - longitude
+
+    angle = 0.0
+    num, den = 0.0, 0.0
+
+    for i in range(fenceSize):
+        num = (vectors[i % fenceSize][0]) * (vectors[(i + 1) % fenceSize][0]) + \
+              (vectors[i % fenceSize][1]) * (vectors[(i + 1) % fenceSize][1])
+        den = (math.sqrt(pow(vectors[i % fenceSize][0], 2) + pow(vectors[i % fenceSize][1], 2))) * \
+              (math.sqrt(pow(vectors[(i + 1) % fenceSize][0], 2) + pow(vectors[(i + 1) % fenceSize][1], 2)))
+        angle += (180 * math.acos(num / den) / math.pi)
+
+    if 355 < angle < 365:
+        return True
+    else:
+        return False
+
+    # Implementation of your existing is_inside_fence function
+    # ...
+
+def check_vehicle_location(vehicle_number_plate):
+    global latitude, longitude  # Declare that you want to modify the global variables
+
+    if vehicle_number_plate in vehicle_fence_coordinates:
+        registered_fence = vehicle_fence_coordinates[vehicle_number_plate]
+        if is_inside_fence(latitude, longitude, registered_fence):
+            current_time = time.time()
+            last_location, last_time = vehicle_locations.get(vehicle_number_plate, (None, None))
+            if last_location is not None:
+                time_inside_fence = current_time - last_time
+                if time_inside_fence >= 30:  # Check if the vehicle has been inside the fence for more than 30 seconds
+                    return f"Vehicle with number plate {vehicle_number_plate} is inside the registered area for more than 30 seconds."
+            vehicle_locations[vehicle_number_plate] = ((latitude, longitude), current_time)
+            return f"{vehicle_number_plate} Vehicle is inside its registered area. Latitude: {latitude}, Longitude: {longitude}"
+        else:
+            # Update global latitude and longitude here
+            latitude = 24.339019
+            longitude = 72.878752
+            return f"{vehicle_number_plate} Vehicle is outside its registered area. Latitude: {latitude}, Longitude: {longitude}"
+        
+    else:
+        return "Vehicle is not registered under any fence coordinates."
+import csv
+latitude_increment = 0.00015
+longitude_increment = 0.00015
+
+while True:
+    latitude += latitude_increment
+    longitude += longitude_increment
+
+    # Your logic for checking vehicle location here
+    vehicle_number_plate = "GJ01IYW5897"
+    result = check_vehicle_location(vehicle_number_plate)
+    print(f"Latitude: {latitude:.6f}, Longitude: {longitude:.6f} - {result}")
+
+        # Format latitude and longitude with 6 decimal places
+    formatted_latitude = f'{latitude:.6f}'
+    formatted_longitude = f'{longitude:.6f}'
+
+    # Open the CSV file in 'w' mode to create a new file or 'a' mode to append to an existing file
+    with open('coordinates.csv', mode='a', newline='') as file:
+        writer = csv.writer(file)
+
+        # Write the formatted data as a new row
+        writer.writerow([vehicle_number_plate,formatted_latitude, formatted_longitude])
+
+    print("Data written to CSV file.")
+
+    # Pause for one second
+    time.sleep(1)
